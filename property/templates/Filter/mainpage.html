@@ -1,0 +1,101 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Property Filter</title>
+  </head>
+  <body>
+    <form id="form1" action="{% url 'filter_property'%}">
+    <div class="container ptop blue">
+        <div class="row">
+            <div class="col-md-3">
+                <label for="city"><b>City: </b></label>
+                <p><input type="text" name="city" id="city" placeholder="enter the city" style="width: 60%; height: 50%;"></p>
+                <!--<textarea id="city" placeholder="enter the city" style="width: 50px; height: 20px;"></textarea>-->
+            </div>
+            <div class="col-md-3">
+                <label for="state"><b>State: </b></label>
+                <!-- <input type="text" id="state" placeholder="enter the city"style="width: 76%; height: 80%;"> -->
+                
+                    <select name="state" id="state" class="form-control" style="width: 60%; height: 50%;">
+                        <option selected="true" disabled="disabled">Select State</option>
+                        {% for key,value in state_choices.items %}
+                            <option value="{{ key }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                
+            </div>
+            <div class="col-md-4 offset-md-1" style="height: 90%;">
+                <label for="housetype" ><b>Type of House:</b></label>
+                <!-- <input type="text" id="housetype" placeholder="e.g villa,flat,penthouse"> -->
+                
+                    <select name="type_house" id="type_house" class="form-control" style="width: 60%; height: 50%;">
+                        <option selected="true" disabled="disabled">Select Type</option>
+                        {% for key,value in type_house_choices.items %}
+                            <option value="{{ key }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <label for="price"><b>Price:</b></label>
+                <!-- <input type="text" id="price" placeholder="enter the price" style="width: 77%; height: 80%;"> -->
+               
+                    <select name="price" id="price" class="form-control" style="width: 60%; height: 50%;">
+                        <option selected="true" disabled="disabled">Select Price</option>
+                        {% for key,value in price_choices.items%}
+                            <option value="{{ key }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                
+            </div>
+            <div class="col-md-3">
+                <label for="floors"><b>Floors:</b></label>
+                <!-- <input type="text" id="floors" placeholder="enter the floors you want"> -->
+              
+                    <select name="floors" id="floors" class="form-control" style="width: 60%; height: 50%;">
+                        <option selected="true" disabled="disabled">Select Floors</option>
+                        {% for key,value in floor_choices.items %}
+                            <option value="{{ key }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                
+            </div>
+            <div class="col-md-4" style="padding-left: 9.5%;">
+                <label for="rooms"><b>   Rooms:   </b></label>
+                <!-- <input type="text" id="rooms" placeholder="no. of rooms you want"> -->
+                
+                    <select name="rooms" id="rooms" class="form-control" style="width: 60%; height: 50%;">
+                        <option selected="true" disabled="disabled">Select Rooms</option>
+                        {% for key,value in room_choices.items %}
+                            <option value="{{ key }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="div1">
+                    <button type="submit" class="btn btn-dark btns">Apply</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>

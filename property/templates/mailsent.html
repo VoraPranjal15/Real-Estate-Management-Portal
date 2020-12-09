@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'searchresult/css/all.min.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: lightcoral">
+    <div class="container">
+        <div class="jumbotron" style="margin-top: 5%;">
+            <div style="border-bottom: 2px solid lightcoral;">
+                
+                <h2>{% block content1 %}Mail sent Successfully {% endblock %}</h2>
+
+                {% block content2 %}
+                <p>Thank you for using our services</p>
+
+                <p>Visit Again!
+                    
+                    <i class="fas fa-smile fa-3x" style="color: rgb(255, 191, 0);"></i></p>
+                {% endblock %}
+            </div>
+            <div style="margin-top: 2%;">
+                <button class="btn btn-primary float-left"><a href="{% url 'renderfilter_propertyonback' %}" style="text-decoration: none;color: white;">Back to Filter</a></button>
+                <button class="btn btn-primary float-right"><a href="{% url 'buyer_logout' %}" style="text-decoration: none;color: white;">Logout</a></button>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

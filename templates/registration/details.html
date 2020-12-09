@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-8 col-sm-10 col-12">
+      <!-- <h2>Sign up as a  -->
+      <form method="post" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        <!-- {{ request.session.seller }} -->
+        <input type="hidden" name="next" value="{{ next }}">
+        <!-- <input type="hidden" name="seller_id" value="{{ request.session.seller }}"> -->
+        {{ form|crispy }}
+        <p>Note: Embed Link will available at the share option of youtube video</p>
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

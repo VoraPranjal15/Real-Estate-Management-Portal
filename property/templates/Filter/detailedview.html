@@ -1,0 +1,522 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'searchresult/css/property_details2.css' %}"> 
+    <link rel="stylesheet" href="{% static 'searchresult/css/all.min.css' %}"> 
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"> -->
+    <script src="https://bootstrap.bundle.min.js / bootstrap.bundle.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script>
+        function displayOne(){
+            // document.getElementById("div1").style.display="block";
+            document.getElementById("div1").style.display="block";
+        }
+        function displayNoneOne(){
+            document.getElementById("div1").style.display="none";
+        }
+        function displayDivOne(){
+            document.getElementById("div1").style.display="block";
+        }
+    </script>
+    <script>
+        function displayTwo(){
+            document.getElementById("div2").style.display="block";
+            
+        }
+        function displayNoneTwo(){
+            document.getElementById("div2").style.display="none";
+        }
+        function displayDivTwo(){
+            document.getElementById("div2").style.display="block";
+        }
+    </script>
+    <script>
+        function displayThree(){
+            document.getElementById("div3").style.display="block";
+            
+        }
+        function displayNoneThree(){
+            document.getElementById("div3").style.display="none";
+        }
+        function displayDivThree(){
+            document.getElementById("div3").style.display="block";
+        }
+    </script>
+    <title>Property Details</title>
+</head>
+<body>
+    
+    <div class="container" style="border-right: 1px solid rgb(90, 2, 128);border-left: 1px solid  rgb(90, 2, 128);">
+        <div class="row format">
+            <div class="col-sm-12 float-right format1">
+                <button class="btn btn-primary" style="background-color: coral;">
+                <a href="{% block urlblock %}{% url 'filter_property' %} {% endblock %}" style="text-decoration: none; color: white;">Back</a>
+                </button>
+            </div>
+        </div>
+        <div class="row format">
+            <div class="col-sm-6 centertext">
+            <h4 class="font1"><b>City:<span style="color: brown;">{{ property_object.city }}</span></b></h4>
+            </div>
+            <!-- <div class="col-sm-5 centertext">
+                <h4 class="font1"><b><span style="color: brown;">Welcome</span></b></h4>
+            </div> -->
+            <div class="col-sm-6 centertext">
+                <h4 class="font1"><b>State:<span style="color: brown;">{{ property_object.state }}</span></b></h4>
+            </div>
+        </div>
+        <div class="row format">
+            <div class="col-sm-3 centertext">
+            <h4 class="font1"><b>Price:<span style="color: brown;"><i class="fas fa-rupee-sign"></i>{{ property_object.price }}</span></b></h4>
+            </div>
+            <div class="col-sm-5 centertext">
+                <h4 class="font1"><b>Builder:<span style="color: brown;">{{ property_object.property_seller.user.name }}</span></b></h4>
+            </div>
+            <div class="col-sm-4 centertext">
+                <h4 class="font1"><b>Posession:<span style="color: brown;">{{ property_object.possession }}</span></b></h4>
+            </div>
+        </div>
+        <div class="row format1">
+            <div class="col-sm-12 img-fluid">
+                        <img src="{{ MEDIA_URL }}{{ property_object.plan.url }}" alt="Images"> 
+            </div>
+        </div>
+        <div class="row format1">
+            <div class="col-md-6 centertext">
+                <div class="block1 fluid">
+                    <h4 class="font1"><b>Type:<span style="color: brown;">{{ property_object.type_house }}</span></b></h4>
+                </div>
+            </div>
+            <div class="col-md-6 centertext">
+                <div class="block1 fluid">
+                    <h4 class="font1"><b>Area of Property:<span style="color: brown;">{{ property_object.area }}</span></b></h4>
+                </div>
+            </div>
+        </div>
+        <div class="row format1">
+            <div class="col-md-6 centertext">
+                <div class="block1">
+                    <h4 class="font1"><b>No. of Floors:<span style="color: brown;">{{ property_object.no_of_floors }}</span></b></h4>
+                </div>
+            </div>
+            <div class="col-md-6 centertext">
+                <div class="block1">
+                    <h4 class="font1"><b>Age of House:<span style="color: brown;">{{ property_object.age_of_house }}</span></b></h4>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row format1">
+            <div class="col-sm-12 img-fluid">
+                <div>
+                    <img src="{{ MEDIA_URL }}{{ images.Bedroom1_Image.url }}" alt="bedroom1 Image">
+                </div>
+            </div>
+        </div>
+        <div class="row format1">
+            <div class="col-md-6 centertext">
+                <div class="block1 font1">
+                        <h4 class="font1"><b>Area of bedroom1:<span style="color:brown">{{ images.Area_of_bedroom1 }} sqft</span></b></h4>
+                </div>
+            </div>
+            <div class="col-md-6 centertext">
+                <div class="block1">
+                    <h4 class="font1"><b>Name:<span style="color: brown;">BedRoom-1</span></b></h4>
+                </div>
+            
+            </div>
+        </div>
+        
+        {% if  images.Area_of_bedroom2 != 0 %}
+        <div class="row format1">
+            <div class="col-sm-12 img-fluid">
+                <div>
+                    <img src="{{ MEDIA_URL }}{{ images.Bedroom2_Image.url }}" alt="bedroom2 Image">
+                </div>
+            </div>
+        </div>
+        <div class="row format1">
+            <div class="col-md-6 centertext">
+                <div class="block1 fluid">
+                    <h4 class="font1"><b>Area of bedroom2:<span style="color:brown">{{ images.Area_of_bedroom2 }} sqft</span></b></h4>
+                </div>
+            </div>
+            <div class="col-md-6 centertext">
+                <div class="block1 fluid">
+                    <h4 class="font1"><b>Name:<span style="color: brown;">BedRoom-2</span></b></h4>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if  images.Area_of_bedroom3 != 0 %}
+        <div class="row format1">
+            <div class="col-sm-12 img-fluid">
+                <div>
+                    <img src="{{ MEDIA_URL }}{{ images.Bedroom3_Image.url }}" alt="bedroom3 Image">
+                </div>
+            </div>
+        </div>
+        <div class="row format1">
+            <div class="col-md-6 centertext">
+                <div class="block1 fluid">
+                    <h4 class="font1"><b>Area of bedroom3:<span style="color:brown">{{ images.Area_of_bedroom3 }} sqft</span></b></h4>
+                </div>
+            </div>
+            <div class="col-md-6 centertext">
+                <div class="block1 fluid">
+                    <h4 class="font1"><b>Name:<span style="color: brown;">BedRoom-3</span></b></h4>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        
+
+        <div class="row format1">
+            <div class="col-sm-12 img-fluid">
+                <div>
+                    <img src="{{ MEDIA_URL }}{{ images.Kitchen_Image.url }}" alt="Kitchen Image">
+                </div>
+            </div>
+        </div>
+        <div class="row format1">
+            
+            <div class="col-md-6 centertext">
+                <div class="block1 font1">
+                        <h4 class="font1"><b>Flooring  of Kitchen:<span style="color: brown;">{{ specs.kitchen_flooring }}</span></b></h4>
+                </div>
+            </div>
+            <div class="col-md-6 centertext">
+                <div class="block1 font1">
+                        <h4 class="font1"><b>Water Fittings:<span style="color: brown;">{{ specs.water_fitting }}</span></b></h4>
+                </div>
+            </div>
+        </div>
+        <div class="row format1">
+            <div class="block2 centertext">
+                <div class="block1 font1">
+                    <h4 class="font1"><b>Area of Kitchen:<span style="color: brown;">{{ images.Area_of_kitchen }} sqft</span></b></h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="row format1">
+            <div class="col-sm-12 img-fluid">
+                <div>
+                    <img src="{{ MEDIA_URL }}{{ images.LivingRoom_Image.url }}" alt="LivingRoom Image">
+                </div>
+            </div>
+        </div>
+        <div class="row format1">
+            <div class="col-md-6 centertext">
+                <div class="block1">
+                    <h4 class="font1"><b>Living Room Flooring:<span style="color: brown;">{{ specs.livingroom_flooring }}</span></b></h4>
+                </div>
+            </div>
+            <div class="col-md-6 centertext">
+                <div class="block1 font1">
+                        <h4 class="font1"><b>Electrical Cable Used:<span style="color: brown;">{{ specs.electrical_Fitting }}</span></b></h4>
+                </div>
+            </div>
+        </div>
+        <div class="row format1">
+            <div class="block2 centertext">
+                <div class="block1 font1">
+                    <h4 class="font1"><b>Area of Living Room:<span style="color: brown;">{{ images.Area_of_livingroom }} sqft</span></b></h4>
+                </div>
+            </div>
+        </div>
+        <div class="row format1">
+            <div class="col-sm-12 img-fluid">
+                <div>
+                    <img src="{{ MEDIA_URL }}{{ images.Main_Image.url }}" alt="Main Image">
+                </div>
+            </div>
+        </div>
+        <div class="row format1">
+            <div class="block2 centertext">
+                <div class="block1 font1">
+                    <h4 class="font1"><b>Project Duration:<span style="color: brown;">{{ builder.project_duration }} Months</span></b></h4>
+                </div>
+            </div>
+        </div>
+        <div class="row format1">
+            <div class="col-md-2 centertext">
+                <div class="block1 font1">
+                    <h4 class="font1"><b>Address:</b></h4>
+                </div>
+            </div>
+            <div class="col-md-10 centertext">
+                <div class="block1 font1">
+                    <p class="font1" style="color: brown;">{{ property_object.address }}</p>
+                </div>
+            </div>     
+        </div>
+        <div class="row format1">
+            <div class="col-md-2 centertext">
+                <div class="block1 font1">
+                    <h4 class="font1"><b>Description:</b></h4>
+                </div>
+            </div>
+            <div class="col-md-10 centertext">
+                <div class="block1 font1">
+                    <p class="font1" style="color: brown;">{{ property_object.Description }}</p>
+                </div>
+            </div>     
+        </div>
+        <div class="row format1">
+            <div class="col-md-2 centertext">
+                    <div class="block1 font1">
+                        <h4 class="font1"><b>Material Details:</b></h4>
+                    </div>
+            </div>
+            <div class="col-md-10 centertext">
+                <div class="row">
+                    <div class="col-md-2 centertext">
+                        <div class="block1 font1">
+                            <h4 class="font1"><b>Door Fitting:</b></h4>
+                        </div>
+                    </div>
+                    <div class="col-md-4 centertext">
+                        <div class="block1 font1">
+                            <h4 class="font1"><span style="color: brown;">{{ specs.door_fitting }}</span></h4>
+                        </div>
+                    </div>
+                    <div class="col-md-2 centertext">
+                        <div class="block1 font1">
+                            <h4 class="font1"><b>Water Fitting:</b></h4>
+                        </div>
+                    </div>
+                    <div class="col-md-4 centertext">
+                        <div class="block1 font1">
+                            <h4 class="font1"><span style="color: brown;">{{ specs.water_fitting }}</span></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="row format1">
+                    <div class="col-md-2 centertext">
+                        <div class="block1 font1">
+                            <h4 class="font1"><b>Exterior Material:</b></h4>
+                        </div>
+                    </div>
+                    <div class="col-md-4 centertext">
+                        <div class="block1 font1">
+                            <h4 class="font1"><span style="color: brown;">{{ specs.exterior_material }}</span></h4>
+                        </div>
+                    </div>
+                    <div class="col-md-2 centertext">
+                        <div class="block1 font1">
+                            <h4 class="font1"><b>Interior Material:</b></h4>
+                        </div>
+                    </div>
+                    <div class="col-md-4 centertext">
+                        <div class="block1 font1">
+                            <h4 class="font1"><span style="color: brown;">{{ specs.interior_material }}</span></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row format1">
+            <div class="col-md-2 centertext">
+                    <div class="block1 font1">
+                        <h4 class="font1"><b>Other Facility:</b></h4>
+                    </div>
+            </div>
+            <div class="col-md-10 centertext">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="block1 font1">
+                            <h4 class="font1"><b>Parking: <span style="color: brown;">
+                                {% if property_object.Parking == True %}
+                                Yes
+                                {% else %}
+                                    No
+                                {% endif %}
+                            </span></b></h4>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="block1 font1">
+                            <h4 class="font1"><b>Conference Room: </b><span style="color: brown;">
+                                {% if property_object.Conference_room == True %}
+                                Yes
+                                {% else %}
+                                    No
+                                {% endif %}
+                                </span></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="row format1">
+                    <div class="col-md-6">
+                        <div class="block1 font1">
+                            <h4 class="font1"><b>Gym:<span style="color: brown;">
+                                {% if property_object.Gym == True %}
+                                Yes
+                                {% else %}
+                                    No
+                                {% endif %}
+                                </span></b></h4>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="block1 font1">
+                            <h4 class="font1"><b>Swimming Pool:<span style="color: brown;">
+                                {% if property_object.swimming_pool == True %}
+                                Yes
+                                {% else %}
+                                    No
+                                {% endif %}
+                                </span></b></h4>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="row format1 centertext">
+            <div class="col-md-12 block1">
+                <h4 class="font1"><b>NearBy Essentials</b></h4>
+            </div>
+        </div>
+        <div class="row format1 centertext">
+            <div class="col-md-2">
+                <div class="block1 font1">
+                    <h4 class="font1"><b>NearBy Hospital:</b></h4>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="block1 font1">
+                    <h4 class="font1"><span style="color: brown;">{{ nearbys.nearby_hospital }}</span></h4>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="block1 font1">
+                    <h4 class="font1"><b>NearBy Bank:</b></h4>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="block1 font1">
+                    <h4 class="font1"><span style="color: brown;">{{ nearbys.nearby_bank }}</span></h4>
+                </div>
+            </div>
+        </div>
+        <div class="row format1 centertext">
+            <div class="col-md-2">
+                <div class="block1 font1">
+                    <h4 class="font1"><b>NearBy School:</b></h4>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="block1 font1">
+                    <h4 class="font1"><span style="color: brown;">{{ nearbys.nearby_school }}</span></h4>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="block1 font1">
+                    <h4 class="font1"><b>NearBy ATM:</b></h4>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="block1 font1">
+                    <h4 class="font1"><span style="color: brown;">{{ nearbys.nearby_ATM }}</span></h4>
+                </div>
+            </div>
+        </div>
+        <div class="row format1">
+            <div class="col-sm-3 centertext">
+                <div class="block1 font1">
+                    <!-- <i class="fab fa-instagram font1"><b>Contact Us:</b></i> -->
+                    <i class="fas fa-phone-alt"><span style="font-family: Monotype Corsiva, Times, Serif;font-size: x-large;"><b>  Builder Contact:  </b></span></i>
+                </div>
+            </div>
+            <div class="col-sm-2 centertext">
+                <div class="block1 font1">
+                    <p>{{ property_object.property_seller.contact }}</p>
+                </div>
+            </div>
+            <div class="col-sm-2 col-sm-offset-1 centertext">
+                <div class="block1 font1">
+                    <!-- <i class="fab fa-instagram font1"><b>Contact Us:</b></i> -->
+                    <i class="far fa-address-book"><span style="font-family: Monotype Corsiva, Times, Serif;
+                        font-size: x-large;"><b>  Contact Us:  </b></span></i>
+                    
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="block1 font1">
+                    <!-- <i class="fab fa-instagram font1"><b>Contact Us:</b></i> -->
+                    <a href="{{ builder.Twitter_handle }}" style="text-decoration: none; padding-left: 2%;"><i class="fab fa-twitter"></i></a>
+                    <a href="{{ builder.facebook_handle }}" style="text-decoration: none; padding-left: 1%;"><i class="fab fa-facebook"></i></a>
+                    <a href="{{ builder.Youtube_channel }}" style="text-decoration: none; padding-left: 1%;"><i class="fab fa-youtube"></i></a>
+                    <i class="fas fa-envelope" style="padding-left: 1%;"><span style="font-size: 86%; padding-left: 2%">{{ property_object.property_seller.user.email }}</span></i>
+                </div>
+            </div>
+        </div>
+        <div class="row format1">
+            <div class="embed-responsive embed-responsive-16by9">
+                {{ builder.Embed_link|safe }}
+
+                {% autoescape off %}
+                    {{ builder.Embed_link }}
+                {% endautoescape %}
+            </div>
+        </div>
+        {% block content %}
+        <div class="row format1">
+            <div class="col-sm-2 col-sm-offset-1">
+                <button id="button1" class="btn btn-primary color1" onmouseover="displayOne()">More Details</button>
+            </div>
+             <div class="col-sm-2 col-sm-offset-2">
+                <button class="btn btn-primary color1" onmouseover="displayTwo()">Take a Visit</button>
+            </div>
+            <div class="col-sm-2 col-sm-offset-2">
+                <button class="btn btn-primary color1" onmouseover="displayThree()">I'm interested</button>
+            </div>
+        </div>
+        <div class="row format1">
+            <div class="col-sm-5" id="div1" onmouseover="displayDivOne()" onmouseout="displayNoneOne()">
+                <div class="block1 font1">
+                    <h4 class="font1"><b>Bank TieUp:<span style="color: brown;">{{ builder.bank_tie_ups }}</span></b></h4>
+                    <h4 class="font1"><b>Sale's Team Representative:<span style="color: brown;">{{ builder.sales_team_rep }}</span></b></h4>
+                    <h4 class="font1"><b>Lawyer:<span style="color: brown;">{{ builder.lawyer }}</span></b></h4>
+                    <h4 class="font1"><b>LandMark Project:<span style="color: brown;">{{ builder.landmark_projects }}</span></b></h4>
+                    <h4 class="font1"><b>CA:<span style="color: brown;">{{ builder.chartered_acc }}</span></b></h4>
+                    <h4 class="font1"><b>Site Incharge:<span style="color: brown;">{{ builder.site_incharge }}</span></b></h4>
+                    <h4 class="font1"><b>Architect:<span style="color: brown;">{{ builder.architect }}</span></b></h4>
+                </div>
+            </div>
+            
+            <form method="POST" action="{% url 'takevisit' property_object.property_seller.user.email property_object.name %}">
+            <div class="col-sm-3 col-sm-offset-5 centertext" id="div2" style="padding-top: -10%;" onmouseover="displayDivTwo()" onmouseout="displayNoneTwo()">
+                <div class="block1 font1">
+                    {% csrf_token %}
+                    <h4 class="font1"><b>choose Date:</b></h4><input type="date" id="date" name="date">
+                    <h4 class="font1"><b>Choose Time:</b></h4><input type="time" id="time" name="time">
+                    <button type="submit" class="btn btn-primary color1">Submit</button>
+                </div>
+            </div>
+        </form>
+            <form id="propertyDetailForm" method="POST" action="{% url 'email' property_object.property_seller.user.email property_object.name %}">    
+            <div class="col-sm-4 col-sm-offset-8 centertext format1" id="div3" onmouseover="displayDivThree()" onmouseout="displayNoneThree()">
+                <div class="block1 font1">
+                    {% csrf_token %}
+                    <i class="fas fa-comment-alt font1"> <b>Anything else you want to convey to seller:  </b></i><textarea name="buyer_msg" rows="20" cols="40"></textarea><button type="submit" class="btn btn-primary color1">Submit</button>
+                </div>
+            </div>
+            </form>
+            {% endblock %}
+        </div>
+    </div>
+  
+</body>
+
+</html>

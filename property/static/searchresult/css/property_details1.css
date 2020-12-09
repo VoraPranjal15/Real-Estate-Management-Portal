@@ -1,0 +1,103 @@
+body{
+    background-color:red;
+    height: 610vh;
+}
+
+.font1{
+    font-family: Monotype Corsiva, Times, Serif;
+    font-size: x-large;
+}
+
+.parallax {
+    /* The image used */
+    /* background-image: url("../images/image1.jpg"); */
+  
+    /* Set a specific height */
+    min-height: 500px; 
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+  }
+
+.block1{
+    background-color: white;
+    opacity: 0.5;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.block2{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.block1 h4{
+    opacity: none;
+    color: rgb(90, 2, 128) ;
+}
+div.block1 i{
+    opacity: none;
+    color: rgb(90, 2, 128) ;
+    /* font-family: Monotype Corsiva, Times, Serif; */
+    /* font-size: x-large; */
+}
+
+#div1{
+    display: none;
+    
+}
+
+#div2{
+    display: none;
+    /* padding-left: 10%; */
+}
+
+#div3{
+    display: none;
+    
+}
+
+.color1{
+    background-color:rgb(168, 2, 160);
+    font-weight: bold;
+    font-family: Monotype Corsiva, Times, Serif;
+    font-size: x-large;
+    
+}
+
+img{
+    /* max-width: 100%;
+    max-height: 100%; */
+    width:100%;
+    height:30%;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+textarea{
+    resize: none;
+    height: 100px;
+    width: 100px;
+}
+
+.format{
+    border-bottom: 2px solid rgb(90, 2, 128);
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.format1{
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.centertext{
+    text-align: center;
+}

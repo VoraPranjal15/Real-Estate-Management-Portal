@@ -1,0 +1,10 @@
+body{
+    background-color: slategray;
+    /* background-color: rgb(79, 47, 77); */
+    margin-top: 5%;
+}
+button.btn-1:hover{
+    background-color: white;
+    text-decoration: none;
+    transition: all 0.4s;
+}
